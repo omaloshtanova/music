@@ -1,0 +1,21 @@
+.conteiner-track {
+    width: 417px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 17px 21px 17px 17px;
+    background-color: var(--dark-alt);
+    border-radius: 20px;
+}
+
+.conteiner-like {
+    position: relative;
+    display: flex;
+}
+
+.like {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,89 @@
+@use 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Ubuntu&display=swap');
+$fon-color: #1D2123;
+
+:root {
+  font-family: "Quicksand", sans-serif;
+  background-color: $fon-color;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --dark-alt: #1A1E1F;
+  --dark-grey: #FFFFFF40;
+  --grey: #FFFFFF80;
+  --light: #EFEEE0;
+  --white: #FFFFFF;
+  --dark-white: #FFFFFF70;
+  --yellow: #FACD66;
+}
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .h1-bold {
+    font-size: 35px;
+    font-weight: 700px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h2-bold  {
+    font-size: 24px;
+    font-weight: 700px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h3-bold  {
+    font-size: 14px;
+    font-weight: 700px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h4-bold  {
+    font-size: 10px;
+    font-weight: 700px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h1-reg {
+    font-size: 24px;
+    font-weight: 400px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h2-reg {
+    font-size: 17px;
+    font-weight: 400px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h3-reg {
+    font-size: 14px;
+    font-weight: 400px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h4-reg {
+    font-size: 12px;
+    font-weight: 400px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h5-reg {
+    font-size: 10px;
+    font-weight: 400px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h3-semi-bold {
+    font-size: 14px;
+    font-weight: 600px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+}
