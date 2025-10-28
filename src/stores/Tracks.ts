@@ -3,6 +3,8 @@ import { makeAutoObservable } from "mobx";
 import { toJS } from "mobx";
 import type { Track } from "../types/Track";
 
+// REVIEW: Тут в целом те же проблемы что и в Alboms
+// Технически треки должны быть еще связаны с альбомом посмотри store.ts там набросал пример
 class Tracks {
   constructor() {
     makeAutoObservable(this);
