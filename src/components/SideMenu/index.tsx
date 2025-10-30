@@ -6,8 +6,10 @@ import user from '../../assets/user.svg'
 import logout from '../../assets/logout.svg'
 
 import './index.scss'
+import { useNavigate } from 'react-router-dom'
 
 export const SideMenu = () => {
+  const navigate = useNavigate()
   return (
     <>
       <div className="flex flex-col gap-[20px]">
@@ -15,10 +17,16 @@ export const SideMenu = () => {
           <img
             src={homeActive}
             alt="homeActive"
+            onClick={() => {
+              navigate('/')
+            }}
           />
           <img
             src={playList}
             alt="playList"
+            onClick={() => {
+              navigate('/collections')
+            }}
           />
           <img
             src={radio}

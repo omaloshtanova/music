@@ -7,18 +7,15 @@ import next from '../../assets/next.svg'
 import repeateOne from '../../assets/repeate-one.svg'
 import volumHigh from '../../assets/volume-high.svg'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { observer } from 'mobx-react-lite'
 
-import { tracksStore } from '../../stores/Tracks'
-
-export const MusicPlayer = () => {
+export const MusicPlayer = observer(() => {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
 
   useEffect(() => {
-    tracksStore.fetchTrack()
-
     const audio = audioRef.current
     if (!audio) return
 
@@ -63,7 +60,7 @@ export const MusicPlayer = () => {
       <div className="music-player">
         <audio
           ref={audioRef}
-          src={tracksStore.track.audio!}
+          // src={tracksStore.track.audio!}
           onEnded={() => setIsPlaying(false)}
         />
         <div className="flex flex-row items-center gap-[13px]">
@@ -123,4 +120,4 @@ export const MusicPlayer = () => {
       </div>
     </>
   )
-}
+})

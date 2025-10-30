@@ -1,0 +1,8 @@
+.btn {
+    border-radius: 32px;
+    padding: 10px;
+    background-color: var(--grey);
+    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 10px;
+}
