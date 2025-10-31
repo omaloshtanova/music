@@ -7,6 +7,9 @@ export class AlbumModel {
     id: number
     img: string | null
     title: string | null
+    // REVIEW: у тебя переменная буквально три значения иметь может по этой записи
+    // string | null | undefined за счет "?:"
+    // Или не пиши null или убери "?", а в конструкторе this.description = data.description ?? null
     description?: string | null
     dj?: string | null
     time?: string | null

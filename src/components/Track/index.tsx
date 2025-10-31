@@ -3,6 +3,10 @@ import like from '../../assets/like.svg'
 import './index.scss'
 import type { TrackModel } from '../../stores/models/TrackModel'
 
+// REVIEW: прошлый раз говорил имена интерфейсов начинаются с I
+// Так же любое имя которое ты пишешь должно быть полноценным не Props, а ITrackProps
+// А если глуюже копнуть то компонент у тебя по своей сути не трек а карточка трека
+// его представление на UI и назвать его лучше TrackCard или TrackListItem если он будет в каком-то списочном компоненте юзаться
 interface Props {
   track: TrackModel
 }

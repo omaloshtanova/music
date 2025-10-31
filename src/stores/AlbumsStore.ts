@@ -11,6 +11,8 @@ class AlbumsStore {
   }
 
   loadAlbums = async () => {
+    // REVIEW: создай папку mocks внутри stores и убери туда массивый с данными эмулирующими загрузку, чтоб они код не захламляли
+    // Потом прикрутим сюда реальный мокер
     const data: IAlbumModelConstrcutData[] = [
       {
         id: 0,
@@ -43,7 +45,6 @@ class AlbumsStore {
         hrs: 16,
       }
     ]
-
     this.albums = data.map(item => new AlbumModel(item))
   }
 
@@ -51,6 +52,9 @@ class AlbumsStore {
       return this.albums.find(album => album.id === id) || null
   }
 
+  // Не понимаю назначение этой функции. Зачем бегать по всем альбомам и искать трек?
+  // Если в ui нажать на альбом то откроется список его треков чисто технически
+  // Если где-то отобразить просто рандомные треки ьл его включить можно и без поиска среди всех альбомов
   getTrack = (id: number): TrackModel | null => {
     for (const album of this.albums) {
         const track = album.tracks.find(track => track.id === id);
