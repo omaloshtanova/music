@@ -6,10 +6,13 @@ console.log(__dirname);
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/',
   resolve: {
     alias: {
       '@' : path.resolve(__dirname, 'src'),
       '@components': path.resolve(__dirname, 'src/components'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@stores': path.resolve(__dirname, 'src/stores'),
     },
   },
   server: {

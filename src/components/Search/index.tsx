@@ -1,22 +1,15 @@
-import logo from '../../assets/logo.svg'
-import search from '../../assets/search.svg'
+import search from '@assets/icons/search.svg'
 
 export const Search = () => {
   return (
     <>
-      <div className="flex flex-row gap-[35px]">
+      <div className="search flex h-4 flex-row items-center gap-1.5">
         <img
-          src={logo}
-          alt="logo"
+          className="h-1"
+          src={search}
+          alt="search"
         />
-        <div className="flex flex-row items-center gap-[22px]">
-          <img
-            className="h-[16px]"
-            src={search}
-            alt="search"
-          />
-          <span className="h3-semi-bold text-[var(--dark-grey)]">Search</span>
-        </div>
+        <span className="h3-semi-bold text-[var(--dark-grey)]">Search</span>
       </div>
     </>
   )

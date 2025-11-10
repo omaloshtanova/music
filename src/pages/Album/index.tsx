@@ -1,47 +1,50 @@
-import { MusicPlayer } from '../../components/MusicPlayer'
-import { Search } from '../../components/Search'
-import { SideMenu } from '../../components/SideMenu'
-import './index.scss'
-import like from '../../assets/red-like.svg'
-import play from '../../assets/play-all.svg'
-import add from '../../assets/albom-add.svg'
-import { Track } from '../../components/Track'
-import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { albumsStore } from '../../stores/AlbumsStore'
-import type { AlbumModel } from '../../stores/models/AlbumModel'
 import { observer } from 'mobx-react-lite'
+import { useParams } from 'react-router-dom'
+import { MusicPlayer } from '@components/MusicPlayer'
+import { Search } from '@components/Search'
+import { SideMenu } from '@components/SideMenu'
+import { TrackCard } from '@components/TrackCard'
+import { albumsStore } from '@stores/AlbumsStore'
+import type { AlbumModel } from '@stores/models/AlbumModel'
+import like from '@assets/icons/red-like.svg'
+import play from '@assets/icons/play-all.svg'
+import add from '@assets/icons/albom-add.svg'
+import './index.scss'
 
 export const Album = observer(() => {
   const params = useParams()
-  const [ album, setAlbum ] = useState<AlbumModel | null>(null)
+  const [album, setAlbum] = useState<AlbumModel | null>(null)
 
   useEffect(() => {
     setAlbum(albumsStore.getAlbumById(Number(params.id)))
     album?.loadTracks()
     return () => {}
   }, [album, params.id])
-  
-  console.log(album?.tracks);
-  
+
   return (
     <>
-      <div className="page flex flex-col gap-[39px]">
-        <Search />
-        <div className="flex flex-row gap-[24px]">
+      <div className='retative w-full h-full'>
+        <img
+          src={album?.img || '/'}
+          alt="cover"
+          className='w-full'
+        />
+        <div className="page page-fon">
+          <Search />
           <SideMenu />
-          <div className="flex w-full flex-col gap-[49px]">
-            <div className="flex flex-row items-center gap-[27px]">
+          <div className="content flex w-full flex-col gap-3">
+            <div className="flex flex-row items-center gap-2">
               <img
-                src={album?.img || '/default-image.png'}
+                src={album?.img || '/'}
                 alt="cover"
               />
-              <div className="flex flex-col gap-[40px]">
-                <div className="flex flex-col gap-[9px]">
+              <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-0.5">
                   <span className="h1-bold text-[var(--turquoise)]">
                     {album?.title}
                   </span>
-                  <div className="flex flex-col gap-[10px]">
+                  <div className="flex flex-col gap-0.5">
                     <span className="h3-reg text-[var(--light)]">
                       {album?.description}
                     </span>
@@ -51,7 +54,7 @@ export const Album = observer(() => {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-row gap-[9px]">
+                <div className="flex flex-row gap-0.5">
                   <div className="btn">
                     <img src={play} />
                     <span className="h4-reg text-[var(--white)]">Play all</span>
@@ -68,9 +71,9 @@ export const Album = observer(() => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-[10px]">
+            <div className="flex flex-col gap-0.5">
               {album?.tracks.map(track => (
-                <Track
+                <TrackCard
                   key={track.id}
                   track={track}
                 />
@@ -78,8 +81,8 @@ export const Album = observer(() => {
             </div>
           </div>
         </div>
+        <MusicPlayer />
       </div>
-      <MusicPlayer />
     </>
   )
 })

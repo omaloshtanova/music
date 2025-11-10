@@ -1,13 +1,13 @@
-import './index.scss'
-import cover3 from '../../assets/cover3.png'
-import previous from '../../assets/previous.svg'
-import shuffle from '../../assets/shuffle.svg'
-import play from '../../assets/play.svg'
-import next from '../../assets/next.svg'
-import repeateOne from '../../assets/repeate-one.svg'
-import volumHigh from '../../assets/volume-high.svg'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { observer } from 'mobx-react-lite'
+import { playerStore } from '@/stores/PlayerStore'
+import previous from '@assets/icons/previous.svg'
+import shuffle from '@assets/icons/shuffle.svg'
+import play from '@assets/icons/play.svg'
+import next from '@assets/icons/next.svg'
+import repeateOne from '@assets/icons/repeate-one.svg'
+import volumHigh from '@assets/icons/volume-high.svg'
+import './index.scss'
 
 export const MusicPlayer = observer(() => {
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -60,20 +60,22 @@ export const MusicPlayer = observer(() => {
       <div className="music-player">
         <audio
           ref={audioRef}
-          // src={tracksStore.track.audio!}
+          src={playerStore.track.audio!}
           onEnded={() => setIsPlaying(false)}
         />
-        <div className="flex flex-row items-center gap-[13px]">
-          <img src={cover3} />
-          <div className="flex flex-col gap-[3px]">
-            <span className="h3-bold text-[var(--white)]">Худи</span>
+        <div className="flex flex-row items-center gap-1">
+          <img src={playerStore.track.img!} />
+          <div className="flex flex-col gap-0.2">
+            <span className="h3-bold text-[var(--white)]">
+              {playerStore.track.title}
+            </span>
             <span className="h4-bold text-[var(--dark-white)]">
-              Джиган feat Artik & Asti, Niletto
+              {playerStore.track.singer}
             </span>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-[27px]">
-          <div className="flex flex-row gap-[42px]">
+        <div className="flex flex-col items-center gap-1.5">
+          <div className="flex flex-row gap-2.5">
             <img
               src={shuffle}
               alt="shuffle"
@@ -110,7 +112,7 @@ export const MusicPlayer = observer(() => {
             className="time-line"
           />
         </div>
-        <div className="flex flex-row items-center gap-[6px]">
+        <div className="flex flex-row items-center gap-0.4">
           <img
             src={volumHigh}
             alt="volumHigh"

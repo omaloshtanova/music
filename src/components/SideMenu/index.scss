@@ -1,6 +1,12 @@
 .menu {
     background-color: var(--dark-alt);
-    width: 52px;
-    padding: 25px 15px;
-    border-radius: 32px;
+    width: 3rem;
+    padding: 1.5rem 1rem;
+    border-radius: 2rem;
+}
+
+aside {
+    position: fixed;
+    left: 1.5rem;
+    top: 1rem;
 }

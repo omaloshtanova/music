@@ -6,4 +6,5 @@ export interface ITrackModelConstrcutData {
     type: string | null
     time: string | null
     img: string | null
+    like: boolean | null
 }

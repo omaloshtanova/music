@@ -1,19 +1,25 @@
-import homeActive from '../../assets/home-active.svg'
-import playList from '../../assets/playlist.svg'
-import radio from '../../assets/radio.svg'
-import videos from '../../assets/videos.svg'
-import user from '../../assets/user.svg'
-import logout from '../../assets/logout.svg'
+import { useNavigate } from 'react-router-dom'
+import homeActive from '@assets/icons/home-active.svg'
+import playList from '@assets/icons/playlist.svg'
+import radio from '@assets/icons/radio.svg'
+import videos from '@assets/icons/videos.svg'
+import user from '@assets/icons/user.svg'
+import logout from '@assets/icons/logout.svg'
+import logo from '@assets/icons/logo.svg'
 
 import './index.scss'
-import { useNavigate } from 'react-router-dom'
 
 export const SideMenu = () => {
   const navigate = useNavigate()
   return (
     <>
-      <div className="flex flex-col gap-[20px]">
-        <div className="menu flex flex-col gap-[31px]">
+      <aside className="sidemenu flex flex-col items-center gap-1.5">
+        <img
+          src={logo}
+          alt="logo"
+          className="size-2"
+        />
+        <div className="menu flex flex-col gap-2">
           <img
             src={homeActive}
             alt="homeActive"
@@ -37,7 +43,7 @@ export const SideMenu = () => {
             alt="videos"
           />
         </div>
-        <div className="menu flex flex-col gap-[31px]">
+        <div className="menu flex flex-col gap-2">
           <img
             src={user}
             alt="user"
@@ -47,7 +53,7 @@ export const SideMenu = () => {
             alt="logout"
           />
         </div>
-      </div>
+      </aside>
     </>
   )
 }

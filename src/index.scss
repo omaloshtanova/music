@@ -9,6 +9,8 @@ $fon-color: #1D2123;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --spacing: 1rem; 
+
   --dark-alt: #1A1E1F;
   --dark-grey: #FFFFFF40;
   --light-grey: #FFFFFF80;
@@ -29,61 +31,61 @@ body {
 
 @layer utilities {
   .h1-bold {
-    font-size: 35px;
+    font-size: 2.1875rem;
     font-weight: 700px;
     line-height: 120%;
     letter-spacing: 0%;
   }
   .h2-bold  {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700px;
     line-height: 120%;
     letter-spacing: 0%;
   }
   .h3-bold  {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700px;
     line-height: 120%;
     letter-spacing: 0%;
   }
   .h4-bold  {
-    font-size: 10px;
+    font-size: 0.625rem;
     font-weight: 700px;
     line-height: 120%;
     letter-spacing: 0%;
   }
   .h1-reg {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 400px;
     line-height: 120%;
     letter-spacing: 0%;
   }
   .h2-reg {
-    font-size: 17px;
+    font-size: 1.0625rem;
     font-weight: 400px;
     line-height: 120%;
     letter-spacing: 0%;
   }
   .h3-reg {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400px;
     line-height: 120%;
     letter-spacing: 0%;
   }
   .h4-reg {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 400px;
     line-height: 120%;
     letter-spacing: 0%;
   }
   .h5-reg {
-    font-size: 10px;
+    font-size: 0.625rem;
     font-weight: 400px;
     line-height: 120%;
     letter-spacing: 0%;
   }
   .h3-semi-bold {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 600px;
     line-height: 100%;
     letter-spacing: 0%;

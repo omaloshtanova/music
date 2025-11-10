@@ -1,9 +1,9 @@
 .conteiner-album {
-    width: 417px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 17px 21px 17px 17px;
+    padding: 1rem 1.25rem 1rem 1rem;
     background-color: var(--dark-alt);
     border-radius: 20px;
 }

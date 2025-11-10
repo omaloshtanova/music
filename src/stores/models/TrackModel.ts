@@ -10,6 +10,7 @@ export class TrackModel {
     type: string | null
     time: string | null
     img: string | null
+    like: boolean | null
 
     #album: AlbumModel | null = null
 
@@ -22,6 +23,7 @@ export class TrackModel {
         this.type = data.type
         this.img = data.img
         this.time = data.time
+        this.like = data.like
 
         makeAutoObservable(this)
     }
@@ -29,4 +31,8 @@ export class TrackModel {
     get album(): AlbumModel | null {
         return this.#album
     }
+
+    setLike = (like: boolean) => {
+        this.like = like
+    } 
 }
