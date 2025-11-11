@@ -13,14 +13,16 @@ interface ITrackCardProps {
 }
 
 export const TrackCard = observer(({ track }: ITrackCardProps) => {
+  console.log(track);
   console.log(track.title, track.like)
-
 
   const setTarckHandle = () => {
     playerStore.setTrack(track)
   }
 
   const putLikeHandel = () => {
+    // REVIEW: свойство like у модели по сути лишнее раз ты складываешь треки в коллекцию
+    // Сердечко покрасить можно на основе наличия трека в коллекции тогда и перетираться оно не будет из loadTracks()
     track.setLike(!track.like)
     console.log( 'задали', track.title, track.like)
     
