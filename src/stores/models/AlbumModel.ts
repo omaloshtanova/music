@@ -1,10 +1,11 @@
 import { makeAutoObservable } from "mobx";
 import type { IAlbumModelConstrcutData } from "../interfaces/IAlbumModelConstrcutData"
-import { TrackModel } from "./TrackModel"
 import type { ITrackModelConstrcutData } from "../interfaces/ITrackModelConstrcutData"
 import { TracksData } from "../mocks/tracksData";
+import { TrackModel } from "./TrackModel"
 
 export class AlbumModel {
+
     id: number
     img: string | null
     title: string | null

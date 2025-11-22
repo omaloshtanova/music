@@ -2,7 +2,8 @@ import { makeAutoObservable } from "mobx"
 import type { ITrackModelConstrcutData } from "./interfaces/ITrackModelConstrcutData"
 
 class PlayerStore {
-  track: ITrackModelConstrcutData = {
+
+    track: ITrackModelConstrcutData = {
         id: 0,
         audio: null,
         title: null,
@@ -10,7 +11,7 @@ class PlayerStore {
         type: null,
         time: null,
         img: null,
-        like: null
+        countLikes: null
     }
 
     constructor() {

@@ -21,6 +21,7 @@ $fon-color: #1D2123;
   --grey: #FFFFFF12;
   --turquoise :#A4C7C6;
   --dark-blue: #33373B5E;
+  --fon-color: #1D2123;
 }
 
 body {
@@ -50,6 +51,12 @@ body {
   }
   .h4-bold  {
     font-size: 0.625rem;
+    font-weight: 700px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h5-bold {
+    font-size: 1.0625rem;
     font-weight: 700px;
     line-height: 120%;
     letter-spacing: 0%;

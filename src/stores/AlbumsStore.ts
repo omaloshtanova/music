@@ -1,9 +1,10 @@
 import { makeAutoObservable } from "mobx";
-import { AlbumModel } from "./models/AlbumModel";
 import type { IAlbumModelConstrcutData } from "./interfaces/IAlbumModelConstrcutData";
+import { AlbumModel } from "./models/AlbumModel";
 import { AlbumsData } from "./mocks/albomsData";
 
 class AlbumsStore {
+
   albums: AlbumModel[] = []
   
   constructor() {

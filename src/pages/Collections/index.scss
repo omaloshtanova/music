@@ -12,3 +12,11 @@
     border-radius: 1.6rem;
     padding: 0.6rem 1rem 0.6rem 1rem;
 }
+
+.collections-btn {
+    @media (max-width: 1170px) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

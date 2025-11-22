@@ -6,14 +6,27 @@ import videos from '@assets/icons/videos.svg'
 import user from '@assets/icons/user.svg'
 import logout from '@assets/icons/logout.svg'
 import logo from '@assets/icons/logo.svg'
-
+import burger from '@assets/icons/burger.svg'
 import './index.scss'
 
-export const SideMenu = () => {
+interface ISideMenuProps {
+  onItemClick: (isOpen: boolean) => void
+}
+
+export const SideMenu = ({ onItemClick }: ISideMenuProps) => {
   const navigate = useNavigate()
+
+  const handleBurgerClick = () => {
+    onItemClick(true)
+  }
+
+  // const handleCloseBurgerClick = () => {
+  //   onItemClick(false)
+  // }
+
   return (
-    <>
-      <aside className="sidemenu flex flex-col items-center gap-1.5">
+    <aside className="nav">
+      <div className="sidemenu flex flex-col items-center gap-1.5">
         <img
           src={logo}
           alt="logo"
@@ -53,7 +66,21 @@ export const SideMenu = () => {
             alt="logout"
           />
         </div>
-      </aside>
-    </>
+      </div>
+
+      <div className="burgermenu flex flex-row justify-between">
+        <img
+          src={logo}
+          alt="logo"
+          className="size-2"
+        />
+        <img
+          src={burger}
+          alt="burger"
+          className="size-2"
+          onClick={handleBurgerClick}
+        />
+      </div>
+    </aside>
   )
 }

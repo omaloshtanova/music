@@ -56,70 +56,87 @@ export const MusicPlayer = observer(() => {
   }, [])
 
   return (
-    <>
-      <div className="music-player">
-        <audio
-          ref={audioRef}
-          src={playerStore.track.audio!}
-          onEnded={() => setIsPlaying(false)}
+    <div className="music-player">
+      <audio
+        ref={audioRef}
+        src={playerStore.track.audio!}
+        onEnded={() => setIsPlaying(false)}
+      />
+      <div className="flex flex-row items-center gap-1">
+        <img
+          className="cover-track"
+          src={playerStore.track.img!}
         />
-        <div className="flex flex-row items-center gap-1">
-          <img src={playerStore.track.img!} />
-          <div className="flex flex-col gap-0.2">
-            <span className="h3-bold text-[var(--white)]">
-              {playerStore.track.title}
-            </span>
-            <span className="h4-bold text-[var(--dark-white)]">
-              {playerStore.track.singer}
-            </span>
-          </div>
-        </div>
-        <div className="flex flex-col items-center gap-1.5">
-          <div className="flex flex-row gap-2.5">
-            <img
-              src={shuffle}
-              alt="shuffle"
-            />
-            <img
-              src={previous}
-              alt="previous"
-            />
-            <div
-              className="play"
-              onClick={togglePlay}
-            >
-              <img
-                src={play}
-                alt="play"
-              />
-            </div>
-
-            <img
-              src={next}
-              alt="next"
-            />
-            <img
-              src={repeateOne}
-              alt="repeateOne"
-            />
-          </div>
-          <input
-            type="range"
-            min="0"
-            max={duration || 0}
-            value={currentTime}
-            onChange={handleSeek}
-            className="time-line"
-          />
-        </div>
-        <div className="flex flex-row items-center gap-0.4">
-          <img
-            src={volumHigh}
-            alt="volumHigh"
-          />
-          <div className="volum"></div>
+        <div className="flex flex-col gap-1">
+          <span className="h3-bold text-[var(--white)]">
+            {playerStore.track.title}
+          </span>
+          <span className="h4-bold text-[var(--dark-white)]">
+            {playerStore.track.singer}
+          </span>
         </div>
       </div>
-    </>
+      <div className="player flex flex-col items-center gap-1.5">
+        <div className="flex flex-row gap-2.5">
+          <img
+            src={shuffle}
+            alt="shuffle"
+          />
+          <img
+            src={previous}
+            alt="previous"
+          />
+          <div
+            className="play"
+            onClick={togglePlay}
+          >
+            <img
+              src={play}
+              alt="play"
+            />
+          </div>
+          <img
+            className="next"
+            src={next}
+            alt="next"
+          />
+          <img
+            src={repeateOne}
+            alt="repeateOne"
+          />
+        </div>
+        <input
+          type="range"
+          min="0"
+          max={duration || 0}
+          value={currentTime}
+          onChange={handleSeek}
+          className="time-line"
+        />
+      </div>
+      <div className="volum-high flex flex-row items-center gap-1">
+        <img
+          src={volumHigh}
+          alt="volumHigh"
+        />
+        <div className="volum"></div>
+      </div>
+
+      <div className="player-mobile">
+        <div
+          className="play"
+          onClick={togglePlay}
+        >
+          <img
+            src={play}
+            alt="play"
+          />
+        </div>
+        <img
+          src={next}
+          alt="next"
+        />
+      </div>
+    </div>
   )
 })

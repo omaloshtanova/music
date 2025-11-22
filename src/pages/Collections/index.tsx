@@ -1,9 +1,6 @@
 import { useState } from 'react'
-import { MusicPlayer } from '@/components/MusicPlayer'
-import { Search } from '@/components/Search'
-import { SideMenu } from '@/components/SideMenu'
-import './index.scss'
 import { TracksCollection } from '@/components/TracksCollection'
+import './index.scss'
 
 export const Collections = () => {
   const [isActive, setIsActive] = useState(true)
@@ -23,29 +20,22 @@ export const Collections = () => {
   }
 
   return (
-    <>
-      <div className="page">
-        <Search />
-        <SideMenu />
-        <div className="content flex w-full flex-col gap-[1.5rem]">
-          <div className="flex flex-row gap-1">
-            <div
-              className={colorCollection}
-              onClick={switchHandle}
-            >
-              My collection
-            </div>
-            <div
-              className={colorLikes}
-              onClick={switchHandle}
-            >
-              Likes
-            </div>
-          </div>
-          <TracksCollection />
+    <div className="content flex w-full flex-col gap-[1.5rem]">
+      <div className="flex flex-row gap-1">
+        <div
+          className={`collections-btn ${colorCollection}`}
+          onClick={switchHandle}
+        >
+          My collection
+        </div>
+        <div
+          className={`collections-btn ${colorLikes}`}
+          onClick={switchHandle}
+        >
+          Likes
         </div>
       </div>
-      <MusicPlayer />
-    </>
+      <TracksCollection />
+    </div>
   )
 }

@@ -7,17 +7,15 @@ interface INewReleasesProps {
 
 export const NewReleases = ({ albums }: INewReleasesProps) => {
   return (
-    <>
-      <div className="flex w-full flex-row flex-wrap gap-2">
-        {albums.map(newRelease => {
-          return (
-            <NewRelease
-              key={newRelease.id}
-              album={newRelease}
-            />
-          )
-        })}
-      </div>
-    </>
+    <div className="flex w-full flex-row flex-wrap gap-2">
+      {albums.map(newRelease => {
+        return (
+          <NewRelease
+            key={newRelease.id}
+            album={newRelease}
+          />
+        )
+      })}
+    </div>
   )
 }

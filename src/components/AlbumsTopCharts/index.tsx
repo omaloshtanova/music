@@ -7,15 +7,13 @@ interface IAlbomListProps {
 
 export const AlbumsTopCharts = ({ albums }: IAlbomListProps) => {
   return (
-    <>
-      <div className="flex w-full flex-col gap-0.75">
-        {albums.slice(0, 3).map(album => (
-          <AlbumTopCharts
-            key={album.id}
-            album={album}
-          />
-        ))}
-      </div>
-    </>
+    <div className="flex w-full flex-col gap-1">
+      {albums.slice(0, 3).map(album => (
+        <AlbumTopCharts
+          key={album.id}
+          album={album}
+        />
+      ))}
+    </div>
   )
 }

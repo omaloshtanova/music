@@ -1,5 +1,8 @@
 .conteiner-track {
     position: relative;
+    @media (max-width: 1170px) {
+        width: 100%;
+    }
 }
 
 .content-track {
@@ -11,10 +14,25 @@
     left: 0;
     padding-bottom: 1.4rem;
     padding-left: 1.2rem;
+
+    @media (max-width: 1170px) {
+        gap: 2rem;
+    }
 }
 
-.cover-track {
+.conteiner-track__cover-track {
     border-radius: 20px;
+
+    @media (min-width: 1170px) {
+        height: 14rem;
+    }
+
+    @media (max-width: 1170px) {
+        height: 14rem;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
 }
 
 .gradient{
@@ -30,5 +48,19 @@
         background: linear-gradient(to bottom, #00000000 0%, #0F1213D9 85%);
         pointer-events: none;
         border-radius: 20px;
+    }
+}
+
+.play-transparent {
+    @media (min-width: 1170px) {
+        display: none;
+    }
+    @media (max-width: 1170px) {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(250, 206, 102, 0.4);
+        padding: 1rem;
+        bottom: 1rem;
+        right: 1rem;
     }
 }

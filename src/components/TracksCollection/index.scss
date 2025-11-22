@@ -1,0 +1,13 @@
+.tracks-collection {
+    @media (min-width: 1170px) {
+        display: flex; 
+        flex-direction: row;  
+        gap: 1.5rem;
+    }
+
+    @media (max-width: 1170px) {
+        display: flex; 
+        flex-direction: column;  
+        gap: 1.5rem;
+    }
+}

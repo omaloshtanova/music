@@ -2,6 +2,7 @@ import { makeAutoObservable } from "mobx"
 import type { TrackModel } from "./models/TrackModel"
 
 class CollectionStore {
+
     tracks: TrackModel[] = []
 
     constructor() {
