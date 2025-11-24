@@ -19,9 +19,19 @@ export const MusicPlayer = observer(() => {
     const audio = audioRef.current
     if (!audio) return
 
+    if (audioRef.current && playerStore.track?.audio && !isPlaying) {
+      audioRef.current.play()
+      setIsPlaying(true)
+    }  else if (audioRef.current && isPlaying) {
+        audioRef.current.pause()
+    }
+
     const updateTime = () => setCurrentTime(audio.currentTime)
     const updateDuration = () => setDuration(audio.duration)
-    const onEnd = () => setIsPlaying(false)
+    const onEnd = () => {
+      setIsPlaying(false)
+      playerStore.nextTrack()
+    }
 
     audio.addEventListener('timeupdate', updateTime)
     audio.addEventListener('loadedmetadata', updateDuration)
@@ -32,7 +42,7 @@ export const MusicPlayer = observer(() => {
       audio.removeEventListener('loadedmetadata', updateDuration)
       audio.removeEventListener('ended', onEnd)
     }
-  }, [])
+  }, [playerStore.track])
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -43,6 +53,14 @@ export const MusicPlayer = observer(() => {
       }
       setIsPlaying(!isPlaying)
     }
+  }
+
+  const nextPlay = () => {
+    playerStore.nextTrack()
+  }
+
+  const previousPlay = () => {
+    playerStore.previousTrack()
   }
 
   const handleSeek = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,25 +77,25 @@ export const MusicPlayer = observer(() => {
     <div className="music-player">
       <audio
         ref={audioRef}
-        src={playerStore.track.audio!}
+        src={playerStore.track?.audio || undefined}
         onEnded={() => setIsPlaying(false)}
       />
       <div className="flex flex-row items-center gap-1">
         <img
           className="cover-track"
-          src={playerStore.track.img!}
+          src={playerStore.track?.img || undefined}
         />
         <div className="flex flex-col gap-1">
           <span className="h3-bold text-[var(--white)]">
-            {playerStore.track.title}
+            {playerStore.track?.title}
           </span>
           <span className="h4-bold text-[var(--dark-white)]">
-            {playerStore.track.singer}
+            {playerStore.track?.singer}
           </span>
         </div>
       </div>
       <div className="player flex flex-col items-center gap-1.5">
-        <div className="flex flex-row gap-2.5">
+        <div className="flex flex-row items-center gap-2.5">
           <img
             src={shuffle}
             alt="shuffle"
@@ -85,6 +103,7 @@ export const MusicPlayer = observer(() => {
           <img
             src={previous}
             alt="previous"
+            onClick={previousPlay}
           />
           <div
             className="play"
@@ -99,6 +118,7 @@ export const MusicPlayer = observer(() => {
             className="next"
             src={next}
             alt="next"
+            onClick={nextPlay}
           />
           <img
             src={repeateOne}

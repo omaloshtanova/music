@@ -20,10 +20,6 @@ export const SideMenu = ({ onItemClick }: ISideMenuProps) => {
     onItemClick(true)
   }
 
-  // const handleCloseBurgerClick = () => {
-  //   onItemClick(false)
-  // }
-
   return (
     <aside className="nav">
       <div className="sidemenu flex flex-col items-center gap-1.5">
@@ -67,7 +63,6 @@ export const SideMenu = ({ onItemClick }: ISideMenuProps) => {
           />
         </div>
       </div>
-
       <div className="burgermenu flex flex-row justify-between">
         <img
           src={logo}

@@ -18,13 +18,13 @@ export const TrackCollection = ({ track }: ITrackCollectionProps) => {
         />
       </div>
       <div className="content-track">
-        <div className='flex flex-col'>
+        <div className="flex flex-col">
           <span className="h1-reg">{track.title}</span>
           <span className="h5-reg">{track.singer}</span>
         </div>
         <span>{track.countLikes} likes</span>
       </div>
-      <div className='play-transparent'>
+      <div className="play-transparent">
         <img
           src={play}
           alt="play"
