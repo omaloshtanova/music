@@ -23,7 +23,8 @@ export const MusicPlayer = observer(() => {
       audioRef.current.play()
       setIsPlaying(true)
     }  else if (audioRef.current && isPlaying) {
-        audioRef.current.pause()
+      audioRef.current.pause()
+      setIsPlaying(false)
     }
 
     const updateTime = () => setCurrentTime(audio.currentTime)
