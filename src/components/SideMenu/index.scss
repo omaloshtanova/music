@@ -18,9 +18,9 @@
 .burgermenu{
     position: fixed;
     width: 100%;
-    // background-color: var(--fon-color);
     padding-bottom: 2rem;
     padding-top: 1.5rem;
+    padding-right: 3rem;
 
     @media (min-width: 1170px) {
         display: none;

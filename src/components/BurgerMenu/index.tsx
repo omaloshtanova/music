@@ -38,6 +38,7 @@ export const BurgerMenu = ({ onItemClick }: IBurgerMenuProps) => {
         <img
           src={homeActive}
           alt="homeActive"
+          className='h-[1.5rem] w-[1.5rem] object-cover bg-center'
         />
         <span className="h5-bold text-[var(--white)]">Home</span>
       </div>

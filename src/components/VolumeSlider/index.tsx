@@ -1,0 +1,80 @@
+import { useState, useRef, useEffect } from 'react'
+
+interface IVolumeSliderProps {
+  volume: number
+  onVolumeChange: (volume: number) => void
+}
+
+export const VolumeSlider = ({
+  volume,
+  onVolumeChange,
+}: IVolumeSliderProps) => {
+  const [isDragging, setIsDragging] = useState(false)
+  const sliderRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsDragging(true)
+    updateVolume(e.clientX)
+  }
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (isDragging) {
+      updateVolume(e.clientX)
+    }
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
+
+  const updateVolume = (clientX: number) => {
+    if (!sliderRef.current) return
+
+    const rect = sliderRef.current.getBoundingClientRect()
+    const x = clientX - rect.left
+    const width = rect.width
+    const newVolume = Math.max(0, Math.min(1, x / width))
+
+    onVolumeChange(newVolume)
+  }
+
+  useEffect(() => {
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove)
+      document.addEventListener('mouseup', handleMouseUp)
+
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove)
+        document.removeEventListener('mouseup', handleMouseUp)
+      }
+    }
+  }, [isDragging])
+
+  return (
+    <>
+      <div
+        ref={sliderRef}
+        className="volume-slider"
+        onMouseDown={handleMouseDown}
+        style={{
+          width: '160px',
+          height: '0.2rem',
+          backgroundColor: '#ddd',
+          borderRadius: '3px',
+          position: 'relative',
+          cursor: 'pointer',
+        }}
+      >
+        <div
+          className="volume-slider-fill"
+          style={{
+            width: `${volume * 100}%`,
+            height: '100%',
+            backgroundColor: '#007bff',
+            borderRadius: '3px',
+          }}
+        />
+      </div>
+    </>
+  )
+}

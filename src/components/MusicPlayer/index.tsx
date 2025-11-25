@@ -8,12 +8,14 @@ import next from '@assets/icons/next.svg'
 import repeateOne from '@assets/icons/repeate-one.svg'
 import volumHigh from '@assets/icons/volume-high.svg'
 import './index.scss'
+import { VolumeSlider } from '../VolumeSlider'
 
 export const MusicPlayer = observer(() => {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
+  const [volume, setVolume] = useState(0.7)
 
   useEffect(() => {
     const audio = audioRef.current
@@ -22,7 +24,7 @@ export const MusicPlayer = observer(() => {
     if (audioRef.current && playerStore.track?.audio && !isPlaying) {
       audioRef.current.play()
       setIsPlaying(true)
-    }  else if (audioRef.current && isPlaying) {
+    } else if (audioRef.current && isPlaying) {
       audioRef.current.pause()
       setIsPlaying(false)
     }
@@ -73,6 +75,13 @@ export const MusicPlayer = observer(() => {
       setCurrentTime(newTime)
     }
   }, [])
+
+  const handleVolumeChange = (newVolume: number) => {
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
+  };
 
   return (
     <div className="music-player">
@@ -140,7 +149,8 @@ export const MusicPlayer = observer(() => {
           src={volumHigh}
           alt="volumHigh"
         />
-        <div className="volum"></div>
+        <VolumeSlider volume={volume} onVolumeChange={handleVolumeChange} />
+        {/* <div className="volum"></div> */}
       </div>
 
       <div className="player-mobile">
