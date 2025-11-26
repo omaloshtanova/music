@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import './index.scss'
 
 interface IVolumeSliderProps {
   volume: number
@@ -56,22 +57,11 @@ export const VolumeSlider = ({
         ref={sliderRef}
         className="volume-slider"
         onMouseDown={handleMouseDown}
-        style={{
-          width: '160px',
-          height: '0.2rem',
-          backgroundColor: '#ddd',
-          borderRadius: '3px',
-          position: 'relative',
-          cursor: 'pointer',
-        }}
       >
         <div
           className="volume-slider-fill"
           style={{
             width: `${volume * 100}%`,
-            height: '100%',
-            backgroundColor: '#007bff',
-            borderRadius: '3px',
           }}
         />
       </div>
