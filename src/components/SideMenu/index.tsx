@@ -23,6 +23,7 @@ export const SideMenu = ({ onItemClick }: ISideMenuProps) => {
   return (
     <aside className="nav">
       <div className="sidemenu flex flex-col items-center gap-1.5">
+        {/* REVIEW: иконки можно как компоненты ипортить с помощью vite-plugin-svgr (надо подключить в vite.config.ts) */}
         <img
           src={logo}
           alt="logo"

@@ -11,11 +11,13 @@ import './index.scss'
 
 export const Album = observer(() => {
   const params = useParams()
+  // REVIEW: у тебя стор есть зачем здесь useState
   const [album, setAlbum] = useState<AlbumModel | null>(null)
 
   useEffect(() => {
     setAlbum(albumsStore.getAlbumById(Number(params.id)))
     album?.loadTracks()
+    // REVIEW: не пиши эти return если ничего в них не делаешь
     return () => {}
   }, [album, params.id])
 

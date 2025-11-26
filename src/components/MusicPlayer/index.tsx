@@ -10,6 +10,9 @@ import volumHigh from '@assets/icons/volume-high.svg'
 import './index.scss'
 import { VolumeSlider } from '../VolumeSlider'
 
+// REVIEW: по хорошему когда юзаешь mobx всю бизнес логику выносить в стор. react тогда будет чисто вьюхой.
+// У тебя сейчас часть логики в компоненте часть в сторе.
+// А если например текущий прогресс трека нужен будет еще где-то за пределами плеера
 export const MusicPlayer = observer(() => {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -48,12 +51,17 @@ export const MusicPlayer = observer(() => {
   }, [playerStore.track])
 
   const togglePlay = () => {
+    // REVIEW: лучше так if (audioRef.current) return;
+    // Так при увелечении проверок код не будет читать читаемость из за вложености
+
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause()
       } else {
         audioRef.current.play()
       }
+
+      // REVIEW: setIsPlaying(prev => !prev);
       setIsPlaying(!isPlaying)
     }
   }
@@ -77,6 +85,7 @@ export const MusicPlayer = observer(() => {
   }, [])
 
   const handleVolumeChange = (newVolume: number) => {
+    // REVIEW: Зачем менять стейт если у тебя например udioRef.current -> undefined
     setVolume(newVolume);
     if (audioRef.current) {
       audioRef.current.volume = newVolume;

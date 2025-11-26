@@ -40,6 +40,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div id="root">
+          {/*
+            REVIEW: не надо рисовать или то или то. Рисуй менб поверх. Добавь анимацию выезжания, чтобы симпатичней было.
+            Еще у тебя крестик кривой в меню куогда оно открыто
+          */}
           {isOpen ? (
             <BurgerMenu onItemClick={handleBurgerClick} />
           ) : (

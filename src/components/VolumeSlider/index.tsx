@@ -6,6 +6,8 @@ interface IVolumeSliderProps {
   onVolumeChange: (volume: number) => void
 }
 
+// REVIEW: для тач устройств будет фигово работать, а с нуля все поведения реализовывать такое себе для них
+// Можно заюзать https://dndkit.com/
 export const VolumeSlider = ({
   volume,
   onVolumeChange,

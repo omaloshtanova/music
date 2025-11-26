@@ -12,11 +12,18 @@ interface ITrackCardProps {
 }
 
 export const TrackCard = observer(({ track }: ITrackCardProps) => {
+  // REVIEW: опечатка setTrackHandle
   const setTarckHandle = () => {
     playerStore.setTrack(track)
   }
 
+  // REVIEW: опечатка putLikeHandle
+  // Следи за такими вещами. В реальном ревью будут тоже замечания по таким вещам
   const putLikeHandel = () => {
+    // REVIEW: у тебя же сюда TrackModel передается в нем геттер и сделай
+    // Надо стремиться максимально отделять данные от слоя
+    // В идеале react должен быть тупо рисовалкой этих данных и ничего не решать
+    // На крупных проектах такое очень влияет на читаемость и расширяемость кода
     if (!collectionStore.tracks.some(item => item.id === track.id)) {
       collectionStore.addTrack(track)
     } else {

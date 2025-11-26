@@ -7,6 +7,7 @@ export const Collections = () => {
   const [colorCollection, setColorCollection] = useState('yellow')
   const [colorLikes, setColorLikes] = useState('silver')
 
+  // REVIEW: очень странное решение с переключением. Тут надо написать отдельный компонент табов что бы не было такого
   const switchHandle = () => {
     if (isActive) {
       setColorCollection('yellow')
