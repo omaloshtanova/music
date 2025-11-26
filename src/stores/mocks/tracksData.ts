@@ -60,7 +60,7 @@ export const TracksData = [
     countLikes: '2.3m',
   },
     {
-    id: 0,
+    id: 6,
     audio: '/src/assets/music/ANNA_ASTI_SHokolad.mp3',
     title: 'Шоколад',
     singer: 'ANNA ASTI',
@@ -70,7 +70,7 @@ export const TracksData = [
     countLikes: '2.3m',
   },
   {
-    id: 1,
+    id: 7,
     audio: '/src/assets/music/Artik_Asti_Niletto_Djigun.mp3',
     title: 'Худи',
     singer: 'Джиган feat Artik & Asti, Niletto',
@@ -80,7 +80,7 @@ export const TracksData = [
     countLikes: '2.3m',
   },
   {
-    id: 2,
+    id: 8,
     audio: '/src/assets/music/HammAli_Navai_Ptichka.mp3',
     title: 'Птичка',
     singer: 'HammAli & Navai',
@@ -90,7 +90,7 @@ export const TracksData = [
     countLikes: '2.3k',
   },
   {
-    id: 3,
+    id: 9,
     audio: '/src/assets/music/Ljosha_Svik_Malinovyjj_svet.mp3',
     title: 'Малиновый свет',
     singer: 'Лёша Свик',
@@ -100,7 +100,7 @@ export const TracksData = [
     countLikes: '2.3k',
   },
   {
-    id: 4,
+    id: 10,
     audio: '/src/assets/music/Sergejj_Lazarev_Eto_vso_ona.mp3',
     title: 'Это всё она',
     singer: 'Сергей лазарев',
@@ -110,7 +110,7 @@ export const TracksData = [
     countLikes: '2.3k',
   },
   {
-    id: 5,
+    id: 11,
     audio: '/src/assets/music/Zivert_khochu.mp3',
     title: 'Ещё хочу',
     singer: 'Zivert',
