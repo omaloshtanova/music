@@ -40,22 +40,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div id="root">
-          {/*
-            REVIEW: не надо рисовать или то или то. Рисуй менб поверх. Добавь анимацию выезжания, чтобы симпатичней было.
-            Еще у тебя крестик кривой в меню куогда оно открыто
-          */}
-          {isOpen ? (
-            <BurgerMenu onItemClick={handleBurgerClick} />
-          ) : (
-            <>
-              <div className="page">
-                <SideMenu onItemClick={handleBurgerClick} />
-                <Search />
-                {children}
-              </div>
-              <MusicPlayer />
-            </>
-          )}
+          <div className="page">
+            <SideMenu onItemClick={handleBurgerClick} />
+            <Search />
+            {children}
+            <BurgerMenu isOpen={isOpen} onItemClick={handleBurgerClick} />
+          </div>
+          <MusicPlayer />
         </div>
         <ScrollRestoration />
         <Scripts />

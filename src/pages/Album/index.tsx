@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 import { TrackCard } from '@components/TrackCard'
 import { albumsStore } from '@stores/AlbumsStore'
-import type { AlbumModel } from '@stores/models/AlbumModel'
 import like from '@assets/icons/red-like.svg'
 import play from '@assets/icons/play-all.svg'
 import add from '@assets/icons/albom-add.svg'
@@ -11,15 +10,14 @@ import './index.scss'
 
 export const Album = observer(() => {
   const params = useParams()
-  // REVIEW: у тебя стор есть зачем здесь useState
-  const [album, setAlbum] = useState<AlbumModel | null>(null)
+  
+  const album = albumsStore.getAlbumById(Number(params.id))
 
   useEffect(() => {
-    setAlbum(albumsStore.getAlbumById(Number(params.id)))
-    album?.loadTracks()
-    // REVIEW: не пиши эти return если ничего в них не делаешь
-    return () => {}
-  }, [album, params.id])
+    if (album) {
+      album.loadTracks()
+    }
+  }, [album])
 
   return (
     <>
@@ -27,8 +25,8 @@ export const Album = observer(() => {
         className="bg-page"
         style={{ backgroundImage: `url(${album?.img})` }}
       ></div>
-      <div className="content album__conteiner">
-        <div className="album__content">
+      <div className="album content">
+        <div className="album__container">
           <img
             src={album?.img || '/'}
             alt="cover"
@@ -66,7 +64,7 @@ export const Album = observer(() => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="album__items flex flex-col gap-1">
           {album?.tracks.map(track => (
             <TrackCard
               key={track.id}

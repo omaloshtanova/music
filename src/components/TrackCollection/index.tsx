@@ -9,22 +9,22 @@ interface ITrackCollectionProps {
 
 export const TrackCollection = ({ track }: ITrackCollectionProps) => {
   return (
-    <div className="conteiner-track">
-      <div className="gradient">
+    <div className="track-collection">
+      <div className="track-collection__gradient">
         <img
           src={img}
           alt="cover"
-          className="conteiner-track__cover-track"
+          className="track-collection__gradient__cover"
         />
       </div>
-      <div className="content-track">
+      <div className="track-collection__info">
         <div className="flex flex-col">
           <span className="h1-reg">{track.title}</span>
           <span className="h5-reg">{track.singer}</span>
         </div>
         <span>{track.countLikes} likes</span>
       </div>
-      <div className="play-transparent">
+      <div className="track-collection__play">
         <img
           src={play}
           alt="play"

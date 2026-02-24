@@ -1,16 +1,26 @@
-.row-conteiner {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: center;
-}
-
-.menu-conteiner  {
-    width: 100vw;
+.burger-menu  {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
     height: 100vh;
     background-color: var(--fon-color);
-    padding: 1rem 1rem 0 2rem;
+    padding: 1rem 2rem 0 2rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 1000;
+
+    &__row {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    &.open {
+        transform: translateX(0); 
+    }
 }

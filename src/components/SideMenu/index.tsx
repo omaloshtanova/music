@@ -29,7 +29,7 @@ export const SideMenu = ({ onItemClick }: ISideMenuProps) => {
           alt="logo"
           className="size-2"
         />
-        <div className="menu flex flex-col gap-2">
+        <div className="sidemenu__menu flex flex-col gap-2">
           <img
             src={homeActive}
             alt="homeActive"
@@ -53,7 +53,7 @@ export const SideMenu = ({ onItemClick }: ISideMenuProps) => {
             alt="videos"
           />
         </div>
-        <div className="menu flex flex-col gap-2">
+        <div className="sidemenu__menu flex flex-col gap-2">
           <img
             src={user}
             alt="user"

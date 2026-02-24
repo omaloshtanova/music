@@ -1,14 +1,14 @@
-.menu {
-    background-color: var(--dark-alt);
-    width: 3rem;
-    padding: 1.5rem 1rem;
-    border-radius: 2rem;
-}
-
 .sidemenu {
     position: fixed;
     left: 1.5rem;
     top: 1rem;
+
+    &__menu {
+        background-color: var(--dark-alt);
+        width: 3rem;
+        padding: 1.5rem 1rem;
+        border-radius: 2rem;
+    }
 
     @media (max-width: 1170px) {
         display: none;

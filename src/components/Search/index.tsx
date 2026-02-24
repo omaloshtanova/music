@@ -1,6 +1,5 @@
 import search from '@assets/icons/search.svg'
 
-// REVIEW: это должен быть рабочий input
 export const Search = () => {
   return (
     <div className="search flex h-4 flex-row items-center gap-1.5">
@@ -9,7 +8,10 @@ export const Search = () => {
         src={search}
         alt="search"
       />
-      <span className="h3-semi-bold text-[var(--dark-grey)]">Search</span>
+      <input
+        className="w-full h3-semi-bold text-[var(--dark-grey)]"
+        placeholder="Search"
+      />
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import { makeAutoObservable } from "mobx"
-// import type { ITrackModelConstrcutData } from "./interfaces/ITrackModelConstrcutData"
 import type { TrackModel } from "./models/TrackModel"
 
 class PlayerStore {

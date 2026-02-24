@@ -61,7 +61,7 @@ export const VolumeSlider = ({
         onMouseDown={handleMouseDown}
       >
         <div
-          className="volume-slider-fill"
+          className="volume-slider__line"
           style={{
             width: `${volume * 100}%`,
           }}

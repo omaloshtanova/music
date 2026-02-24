@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { observer } from 'mobx-react-lite'
+import { VolumeSlider } from '@components/VolumeSlider'
 import { playerStore } from '@/stores/PlayerStore'
 import previous from '@assets/icons/previous.svg'
 import shuffle from '@assets/icons/shuffle.svg'
@@ -8,7 +9,6 @@ import next from '@assets/icons/next.svg'
 import repeateOne from '@assets/icons/repeate-one.svg'
 import volumHigh from '@assets/icons/volume-high.svg'
 import './index.scss'
-import { VolumeSlider } from '../VolumeSlider'
 
 // REVIEW: по хорошему когда юзаешь mobx всю бизнес логику выносить в стор. react тогда будет чисто вьюхой.
 // У тебя сейчас часть логики в компоненте часть в сторе.
@@ -51,19 +51,14 @@ export const MusicPlayer = observer(() => {
   }, [playerStore.track])
 
   const togglePlay = () => {
-    // REVIEW: лучше так if (audioRef.current) return;
-    // Так при увелечении проверок код не будет читать читаемость из за вложености
+    if (!audioRef.current) return
 
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play()
-      }
-
-      // REVIEW: setIsPlaying(prev => !prev);
-      setIsPlaying(!isPlaying)
+    if (isPlaying) {
+      audioRef.current.pause()
+    } else {
+      audioRef.current.play()
     }
+    setIsPlaying(prev => !prev)
   }
 
   const nextPlay = () => {
@@ -85,12 +80,11 @@ export const MusicPlayer = observer(() => {
   }, [])
 
   const handleVolumeChange = (newVolume: number) => {
-    // REVIEW: Зачем менять стейт если у тебя например udioRef.current -> undefined
-    setVolume(newVolume);
-    if (audioRef.current) {
-      audioRef.current.volume = newVolume;
-    }
-  };
+    if (!audioRef.current) return
+
+    setVolume(newVolume)
+    audioRef.current.volume = newVolume
+  }
 
   return (
     <div className="music-player">
@@ -99,7 +93,7 @@ export const MusicPlayer = observer(() => {
         src={playerStore.track?.audio || undefined}
         onEnded={() => setIsPlaying(false)}
       />
-      <div className="flex flex-row items-center gap-1">
+      <div className="music-player__desc flex flex-row items-center gap-1">
         <img
           className="cover-track"
           src={playerStore.track?.img || undefined}
@@ -113,7 +107,7 @@ export const MusicPlayer = observer(() => {
           </span>
         </div>
       </div>
-      <div className="player flex flex-col items-center gap-1.5">
+      <div className="music-player__player flex flex-col items-center gap-1.5">
         <div className="flex flex-row items-center gap-2.5">
           <img
             src={shuffle}
@@ -153,16 +147,18 @@ export const MusicPlayer = observer(() => {
           className="time-line"
         />
       </div>
-      <div className="volum-high flex flex-row items-center gap-1">
+      <div className="music-player__volum-high flex flex-row items-center gap-1">
         <img
           src={volumHigh}
           alt="volumHigh"
         />
-        <VolumeSlider volume={volume} onVolumeChange={handleVolumeChange} />
-        {/* <div className="volum"></div> */}
+        <VolumeSlider
+          volume={volume}
+          onVolumeChange={handleVolumeChange}
+        />
       </div>
 
-      <div className="player-mobile">
+      <div className="music-player__mobile">
         <div
           className="play"
           onClick={togglePlay}

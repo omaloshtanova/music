@@ -8,10 +8,11 @@ import logout from '@assets/icons/logout.svg'
 import './index.scss'
 
 interface IBurgerMenuProps {
+  isOpen: boolean
   onItemClick: (isOpen: boolean) => void
 }
 
-export const BurgerMenu = ({ onItemClick }: IBurgerMenuProps) => {
+export const BurgerMenu = ({ isOpen, onItemClick }: IBurgerMenuProps) => {
   const navigate = useNavigate()
 
   const handleCloseBurgerClick = () => {
@@ -19,7 +20,7 @@ export const BurgerMenu = ({ onItemClick }: IBurgerMenuProps) => {
   }
 
   return (
-    <aside className="menu-conteiner">
+    <aside className={`burger-menu ${isOpen ? 'open' : ''}`}>
       <div className="flex w-full flex-row justify-end">
         <span
           className="h1-bold text-[var(--white)]"
@@ -29,7 +30,7 @@ export const BurgerMenu = ({ onItemClick }: IBurgerMenuProps) => {
         </span>
       </div>
       <div
-        className="row-conteiner"
+        className="burger-menu__row"
         onClick={() => {
           navigate('/')
           onItemClick(false)
@@ -43,7 +44,7 @@ export const BurgerMenu = ({ onItemClick }: IBurgerMenuProps) => {
         <span className="h5-bold text-[var(--white)]">Home</span>
       </div>
       <div
-        className="row-conteiner"
+        className="burger-menu__row"
         onClick={() => {
           navigate('/collections')
           onItemClick(false)
@@ -55,28 +56,28 @@ export const BurgerMenu = ({ onItemClick }: IBurgerMenuProps) => {
         />
         <span className="h5-bold text-[var(--white)]">My collecions</span>
       </div>
-      <div className="row-conteiner">
+      <div className="burger-menu__row">
         <img
           src={radio}
           alt="radio"
         />
         <span className="h5-bold text-[var(--white)]">Radio</span>
       </div>
-      <div className="row-conteiner">
+      <div className="burger-menu__row">
         <img
           src={videos}
           alt="videos"
         />
         <span className="h5-bold text-[var(--white)]">Music video</span>
       </div>
-      <div className="row-conteiner">
+      <div className="burger-menu__row">
         <img
           src={user}
           alt="user"
         />
         <span className="h5-bold text-[var(--white)]">Profile</span>
       </div>
-      <div className="row-conteiner">
+      <div className="burger-menu__row">
         <img
           src={logout}
           alt="logout"

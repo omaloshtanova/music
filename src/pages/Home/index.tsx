@@ -15,20 +15,20 @@ export const Home = observer(() => {
     albumsStore.loadAlbums()
   }, [])
   return (
-    <div className="content home__content">
+    <div className="home content">
       <img
-        className="image"
+        className="home__image"
         src={image}
       />
       <img
-        className="image-mobile"
+        className="home__image-mobile"
         src={imageMobile}
       />
-      <div className="top-charts flex w-full flex-col gap-1">
+      <div className="home__top-charts flex w-full flex-col gap-1">
         <span className="h2-bold text-[var(--light)]">Top charts</span>
         <AlbumsTopCharts albums={albumsStore.albums} />
       </div>
-      <div className="new-releases flex flex-col gap-1">
+      <div className="home__new-releases flex flex-col gap-1">
         <span className="h2-bold w-full text-[var(--light)]">New releases</span>
         <NewReleases albums={albumsStore.albums} />
       </div>

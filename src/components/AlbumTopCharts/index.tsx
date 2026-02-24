@@ -12,7 +12,7 @@ export const AlbumTopCharts = ({ album }: IAlbumTopChartsProps) => {
   const navigate = useNavigate()
   return (
     <div
-      className="conteiner-album"
+      className="top-charts"
       onClick={() => {
         navigate(`albums/${album.id}`)
       }}
@@ -20,14 +20,14 @@ export const AlbumTopCharts = ({ album }: IAlbumTopChartsProps) => {
       <img
         src={album.img!}
         alt="cover"
-        className="cover"
+        className="top-charts__cover"
       />
-      <div className="desc">
+      <div className="top-charts__desc">
         <span className="h2-reg text-[var(--white)]">{album.title}</span>
         <span className="h4-reg text-[var(--light-grey)]">{album.dj}</span>
       </div>
-      <span className="time h4-reg text-[var(--white)]">{album.time}</span>
-      <div className="conteiner-like">
+      <span className="top-charts__time h4-reg text-[var(--white)]">{album.time}</span>
+      <div className="top-charts__like">
         <img src={circle} />
         <img
           className="like"

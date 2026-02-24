@@ -29,7 +29,7 @@
     }
 }
 
-.album__content {
+.album__container {
     @media (max-width: 1170px) {
         display: grid;
         grid-template-areas: 
@@ -50,7 +50,7 @@
     }
 }
 
-.desc-album, .album__conteiner {
+.desc-album, .album {
     display: flex;
     flex-direction: column;
 

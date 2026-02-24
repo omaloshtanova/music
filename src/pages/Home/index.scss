@@ -38,7 +38,35 @@
   grid-area: content;
 }
 
-.home__content { 
+.home { 
+  &__image {
+    grid-area: image; 
+
+    @media (max-width: 1170px) {
+      display: none;
+    }
+  }
+
+  &__image-mobile{
+    grid-area: image-mobile; 
+
+    @media (min-width: 1170px) {
+        display: none;
+    }
+  }
+
+  &__top-charts {
+    grid-area: top-charts;
+  }
+
+  &__new-releases {
+    grid-area: new-releases;
+  }
+
+  &__popular {
+    grid-area: popular;
+  }
+
   @media (min-width: 1170px) {
     display: grid;
     grid-template-areas: 
@@ -62,32 +90,4 @@
     grid-template-rows: auto;
     gap: 1.5rem;
   }
- }
-
-.image {
-  grid-area: image; 
-
-  @media (max-width: 1170px) {
-    display: none;
-  }
- }
-
-.image-mobile{
-  grid-area: image-mobile; 
-
-  @media (min-width: 1170px) {
-      display: none;
-  }
- }
-
-.top-charts {
-  grid-area: top-charts;
- }
-
-.new-releases {
-  grid-area: new-releases;
-}
-
-.popular {
-  grid-area: popular;
 }

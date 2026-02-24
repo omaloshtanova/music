@@ -12,14 +12,11 @@ interface ITrackCardProps {
 }
 
 export const TrackCard = observer(({ track }: ITrackCardProps) => {
-  // REVIEW: опечатка setTrackHandle
-  const setTarckHandle = () => {
+  const setTrackHandle = () => {
     playerStore.setTrack(track)
   }
 
-  // REVIEW: опечатка putLikeHandle
-  // Следи за такими вещами. В реальном ревью будут тоже замечания по таким вещам
-  const putLikeHandel = () => {
+  const putLikeHandle = () => {
     // REVIEW: у тебя же сюда TrackModel передается в нем геттер и сделай
     // Надо стремиться максимально отделять данные от слоя
     // В идеале react должен быть тупо рисовалкой этих данных и ничего не решать
@@ -32,12 +29,12 @@ export const TrackCard = observer(({ track }: ITrackCardProps) => {
   }
 
   return (
-    <div className="track-row">
+    <div className="track">
       <div className="flex flex-row items-center gap-1">
         <img
           src={track.img || '/default-image.png'}
           alt="cover"
-          className="track-row__cover-track"
+          className="track__cover"
         />
         <img
           src={
@@ -46,26 +43,26 @@ export const TrackCard = observer(({ track }: ITrackCardProps) => {
               : likeNotActive
           }
           alt="like"
-          onClick={putLikeHandel}
-          className="like-track h-1 cursor-pointer"
+          onClick={putLikeHandle}
+          className="track__like h-1 cursor-pointer"
         />
       </div>
-      <div className="desc-track">
+      <div className="track__desc">
         <span
           className="h4-reg w-16 cursor-pointer text-[var(--white)]"
-          onClick={setTarckHandle}
+          onClick={setTrackHandle}
         >
           {track.title} ~ {track.singer}
         </span>
         <span className="h4-reg w-10 text-[var(--white)]">{track.type}</span>
         <span className="h4-reg text-[var(--white)]">{track.time}</span>
-        <img src={more} />
+        <img src={more} alt="more"/>
       </div>
-      <div className="desc-track-mobile">
+      <div className="track__desc-mobile">
         <div className="flex flex-col">
           <span
             className="h4-reg w-16 cursor-pointer text-[var(--white)]"
-            onClick={setTarckHandle}
+            onClick={setTrackHandle}
           >
             {track.title} ~ {track.singer}
           </span>

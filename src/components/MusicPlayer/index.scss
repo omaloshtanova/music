@@ -12,22 +12,31 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px); 
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+    
+    &__player {
+        @media (max-width: 1170px) {
+            display: none;
+        }
+    }
+    
+    &__mobile {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+
+        @media (min-width: 1170px) {
+            display: none;
+        }
+    }
 
     @media (min-width: 1170px) {
         padding-left: 6.25rem;
         padding-right: 4rem;
     }
-
+    
     @media (max-width: 1170px) {
         padding: 2rem;
     }
-}
-
-.volum {
-    width: 10rem;
-    height: 0.2rem;
-    border-radius: 42px;
-    background-color: var(--yellow);
 }
 
 .time-line {
@@ -56,27 +65,12 @@
     }
 }
 
-.player {
-    @media (max-width: 1170px) {
-        display: none;
-    }
-}
-
 .volum-high {
     @media (max-width: 1170px) {
         display: none;
     }
 }
 
-.player-mobile {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-
-    @media (min-width: 1170px) {
-        display: none;
-    }
-}
 
 .next {
     @media (max-width: 1170px) {
