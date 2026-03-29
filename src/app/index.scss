@@ -1,0 +1,100 @@
+@use 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Ubuntu&display=swap');
+$fon-color: #1D2123;
+
+:root {
+  font-family: "Quicksand", sans-serif;
+  background-color: $fon-color;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --spacing: 1rem; 
+
+  --dark-alt: #1A1E1F;
+  --dark-grey: #FFFFFF40;
+  --light-grey: #FFFFFF80;
+  --light: #EFEEE0;
+  --white: #FFFFFF;
+  --dark-white: #FFFFFF70;
+  --yellow: #FACD66;
+  --grey: #FFFFFF12;
+  --turquoise :#A4C7C6;
+  --dark-blue: #33373B5E;
+  --fon-color: #1D2123;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .h1-bold {
+    font-size: 2.1875rem;
+    font-weight: 700px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h2-bold  {
+    font-size: 1.5rem;
+    font-weight: 700px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h3-bold  {
+    font-size: 0.875rem;
+    font-weight: 700px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h4-bold  {
+    font-size: 0.625rem;
+    font-weight: 700px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h5-bold {
+    font-size: 1.0625rem;
+    font-weight: 700px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h1-reg {
+    font-size: 1.5rem;
+    font-weight: 400px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h2-reg {
+    font-size: 1.0625rem;
+    font-weight: 400px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h3-reg {
+    font-size: 0.875rem;
+    font-weight: 400px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h4-reg {
+    font-size: 0.75rem;
+    font-weight: 400px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h5-reg {
+    font-size: 0.625rem;
+    font-weight: 400px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .h3-semi-bold {
+    font-size: 0.875rem;
+    font-weight: 600px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+}
